@@ -1,9 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "exports": "./main.ts",
   "author": "choeqq",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "dev": "tsnd --exit-child --transpile-only src/main.ts"
   },
