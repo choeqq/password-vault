@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import createServer from "./utils/createServer";
-import { disconnectFromDb } from "./utils/db";
+import { connectToDb, disconnectFromDb } from "./utils/db";
 import logger from "./utils/logger";
 
 console.log("Hello world");
@@ -26,6 +26,8 @@ async function main() {
     const url = await app.listen({ port: 4000, host: "0.0.0.0" });
 
     logger.info(`Server is ready at ${url}`);
+
+    await connectToDb();
   } catch (e) {
     logger.error(e);
     process.exit(1);
